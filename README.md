@@ -2,34 +2,34 @@
 
 This repository contains my implementation of Homework 4 using Kubernetes, Minikube, and Azure Container Apps.
 
-## Part 1 — Kubernetes Deployment and Scaling
+## Part 1 - Kubernetes Deployment and Scaling
 
-- Deployed the TrustBank fraud-detection service with three replicas.
-- Configured CPU and memory requests and limits.
-- Configured readiness and liveness probes.
-- Configured a Horizontal Pod Autoscaler targeting 40% CPU utilization, with a maximum of eight replicas.
-- Verified the `/predict` endpoint and demonstrated pod self-healing.
+- Deployed the fraud detection service from the TrustBank with three replicas.
+- Set CPU and memory requests and limits.
+- Set liveness and readiness probes for the containers.
+- Set Horizontal Pod Autoscaling with the target CPU utilization of 40% and with the maximum replicas number of eight.
+- Verified the `/predict` endpoint and performed pod healing.
 
-## Part 2 — Deployment Strategies
+## Part 2 - Deployment Strategies
 
-- Configured rolling updates with `maxUnavailable: 0`.
-- Tested a v1-to-v2 rolling update with 205 successful requests and zero dropped requests.
-- Implemented blue-green deployment, including cutover to green and rollback to blue.
+- Added `rollingUpdate.maxUnavailable: 0`.
+- Conducted a v1 -> v2 rolling update test with 205 successful and 0 dropped requests.
+- Completed blue-green deployment including the switch to the green deployment and rollback.
 
-## Part 3 — Azure Container Apps
+## Part 3 - Azure Container Apps
 
-- Deployed the provided fraud-service image to Azure Container Apps.
-- Used Azure Container Registry and a managed identity.
-- Verified the public `/predict` endpoint returned HTTP 200.
-- Deleted the Azure resource group and confirmed deletion.
+- Deployed the provided fraud-service image into Azure Container Apps.
+- Utilized Azure Container Registry and a managed identity.
+- Checked that the public `/predict` endpoint gives a HTTP 200 response code.
+- Deleted the azure resource group and checked its deletion.
 
 ## Repository Contents
 
-- `k8s/` — Kubernetes manifests
-- `k8s/blue-green/` — Blue-green deployment manifests
-- `scripts/` — Testing and demonstration scripts
-- `ANSWERS.md` — Written homework answers
-- `screenshots/` — Evidence of deployment and testing
+- `k8s/` - Kubernetes manifests
+- `k8s/blue-green/` - Blue-green deployment manifests
+- `scripts/` - Scripts used during the tests and demonstrations
+- `ANSWERS.md` - Written homework questions answers
+- `screenshots/` - Proofs of deployments and tests performed
 
 ## Azure Cleanup
 

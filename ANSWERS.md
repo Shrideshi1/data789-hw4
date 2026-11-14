@@ -1,18 +1,13 @@
-# HW4 — Short Answers
-
-Answer each question in 2–3 sentences.
+# HW4 - Short Answers
 
 ## 1. Rolling-update safety
-Why does the Deployment use `maxUnavailable: 0`, and what would change if it were `maxUnavailable: 1`?
 
-> _your answer here_
+Using `maxUnavailable: 0` ensures that Kubernetes does not intentionally reduce the number of available replicas below the desired count during a rolling update. If it were set to `1`, Kubernetes could temporarily allow one replica to be unavailable, potentially reducing the service's capacity to handle requests.
 
 ## 2. Health probes
-Why do the liveness/readiness probes target `/health` instead of `/predict`?
 
-> _your answer here_
+The `/health` endpoint provides a lightweight way to check whether the application is running and ready to serve traffic. The `/predict` endpoint performs model inference and requires transaction data, so using it for frequent health checks would create unnecessary processing overhead.
 
 ## 3. Autoscaling under load
-Your HPA scales at 40% CPU up to 8 pods. If request volume doubled, what would you expect to happen — and what happens once it reaches the maximum?
 
-> _your answer here_
+If request volume doubled and CPU utilization increased above the 40% target, the HPA would attempt to add replicas to distribute the workload. Once the deployment reached the maximum of eight replicas, it could not scale further, potentially causing higher response times or failed requests if traffic continued to increase.
